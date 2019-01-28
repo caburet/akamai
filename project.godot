@@ -11,12 +11,12 @@ config_version=3
 [application]
 
 config/name="jam2019"
-run/main_scene="res://titulo.tscn"
+run/main_scene="res://scenes/titulo.tscn"
 config/icon="res://icon.png"
 
 [autoload]
 
-logica="*res://logica.gd"
+logica="*res://scripts/logica.gd"
 
 [display]
 
