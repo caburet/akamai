@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=49 format=2]
 
 [ext_resource path="res://scripts/KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://Personajes GGJ2019/protagonist.png" type="Texture" id=2]
@@ -17,44 +17,38 @@
 [ext_resource path="res://scripts/npc5.gd" type="Script" id=15]
 [ext_resource path="res://Personajes GGJ2019/ma'am.png" type="Texture" id=16]
 [ext_resource path="res://scripts/FinCasa.gd" type="Script" id=17]
-[ext_resource path="res://imagenes/descarga.png" type="Texture" id=18]
-[ext_resource path="res://fondo/se repite.png" type="Texture" id=19]
-[ext_resource path="res://fondo/1.png" type="Texture" id=20]
-[ext_resource path="res://fondo/2.png" type="Texture" id=21]
-[ext_resource path="res://fondo/3.png" type="Texture" id=22]
-[ext_resource path="res://fondo/4.png" type="Texture" id=23]
-[ext_resource path="res://fondo/5.png" type="Texture" id=24]
-[ext_resource path="res://fondo/6.png" type="Texture" id=25]
-[ext_resource path="res://fondo/7.png" type="Texture" id=26]
-[ext_resource path="res://fondo/8.png" type="Texture" id=27]
-[ext_resource path="res://fondo/9.png" type="Texture" id=28]
-[ext_resource path="res://fondo/10.png" type="Texture" id=29]
-[ext_resource path="res://fondo/11.png" type="Texture" id=30]
-[ext_resource path="res://fondo/12.png" type="Texture" id=31]
-[ext_resource path="res://fondo/segundo plano/1.png" type="Texture" id=32]
-[ext_resource path="res://fondo/segundo plano/2.png" type="Texture" id=33]
-[ext_resource path="res://fondo/segundo plano/3.png" type="Texture" id=34]
-[ext_resource path="res://fondo/segundo plano/4.png" type="Texture" id=35]
-[ext_resource path="res://fondo/segundo plano/5.png" type="Texture" id=36]
-[ext_resource path="res://fondo/segundo plano/6.png" type="Texture" id=37]
-[ext_resource path="res://fondo/segundo plano/7.png" type="Texture" id=38]
-[ext_resource path="res://fondo/segundo plano/9.png" type="Texture" id=39]
-[ext_resource path="res://fondo/segundo plano/10.png" type="Texture" id=40]
-[ext_resource path="res://fondo/segundo plano/11.png" type="Texture" id=41]
-[ext_resource path="res://fondo/segundo plano/8.png" type="Texture" id=42]
-[ext_resource path="res://fondo/segundo plano/12.png" type="Texture" id=43]
-
-
-
-
-
+[ext_resource path="res://fondo/se repite.png" type="Texture" id=18]
+[ext_resource path="res://fondo/1.png" type="Texture" id=19]
+[ext_resource path="res://fondo/2.png" type="Texture" id=20]
+[ext_resource path="res://fondo/3.png" type="Texture" id=21]
+[ext_resource path="res://fondo/4.png" type="Texture" id=22]
+[ext_resource path="res://fondo/5.png" type="Texture" id=23]
+[ext_resource path="res://fondo/6.png" type="Texture" id=24]
+[ext_resource path="res://fondo/7.png" type="Texture" id=25]
+[ext_resource path="res://fondo/8.png" type="Texture" id=26]
+[ext_resource path="res://fondo/9.png" type="Texture" id=27]
+[ext_resource path="res://fondo/10.png" type="Texture" id=28]
+[ext_resource path="res://fondo/11.png" type="Texture" id=29]
+[ext_resource path="res://fondo/12.png" type="Texture" id=30]
+[ext_resource path="res://fondo/segundo plano/1.png" type="Texture" id=31]
+[ext_resource path="res://fondo/segundo plano/2.png" type="Texture" id=32]
+[ext_resource path="res://fondo/segundo plano/3.png" type="Texture" id=33]
+[ext_resource path="res://fondo/segundo plano/4.png" type="Texture" id=34]
+[ext_resource path="res://fondo/segundo plano/5.png" type="Texture" id=35]
+[ext_resource path="res://fondo/segundo plano/6.png" type="Texture" id=36]
+[ext_resource path="res://fondo/segundo plano/7.png" type="Texture" id=37]
+[ext_resource path="res://fondo/segundo plano/9.png" type="Texture" id=38]
+[ext_resource path="res://fondo/segundo plano/10.png" type="Texture" id=39]
+[ext_resource path="res://fondo/segundo plano/11.png" type="Texture" id=40]
+[ext_resource path="res://fondo/segundo plano/8.png" type="Texture" id=41]
+[ext_resource path="res://fondo/segundo plano/12.png" type="Texture" id=42]
 
 [sub_resource type="CircleShape2D" id=1]
 
 custom_solver_bias = 0.0
 radius = 218.402
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=2]
 
 size = 14
 use_mipmaps = true
@@ -62,7 +56,7 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Extra Spacing", "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=5]
+[sub_resource type="DynamicFont" id=3]
 
 size = 14
 use_mipmaps = false
@@ -70,7 +64,7 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="DynamicFont" id=6]
+[sub_resource type="DynamicFont" id=4]
 
 size = 14
 use_mipmaps = false
@@ -78,17 +72,17 @@ use_filter = false
 font_data = ExtResource( 3 )
 _sections_unfolded = [ "Font", "Settings" ]
 
-[sub_resource type="RectangleShape2D" id=2]
+[sub_resource type="RectangleShape2D" id=5]
 
 custom_solver_bias = 0.0
 extents = Vector2( 127.345, 28.004 )
 
-[sub_resource type="RectangleShape2D" id=3]
+[sub_resource type="RectangleShape2D" id=6]
 
 custom_solver_bias = 0.0
 extents = Vector2( 54.4719, 106.63 )
 
-[node name="World" type="Node"]
+[node name="World" type="Node" index="0"]
 
 [node name="TimeFade" type="Timer" parent="." index="0"]
 
@@ -139,7 +133,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 2 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 valign = 1
@@ -165,7 +159,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 1
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 5 )
+custom_fonts/font = SubResource( 3 )
 align = 1
 valign = 1
 uppercase = true
@@ -190,7 +184,7 @@ mouse_filter = 2
 mouse_default_cursor_shape = 0
 size_flags_horizontal = 3
 size_flags_vertical = 4
-custom_fonts/font = SubResource( 6 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 valign = 1
 autowrap = true
@@ -252,6 +246,22 @@ _sections_unfolded = [ "Animation", "Material", "Region", "Transform" ]
 
 [node name="Sprite2" type="Sprite" parent="player" index="9"]
 
+[node name="buttonrigth" type="TouchScreenButton" parent="player" index="10"]
+
+position = Vector2( -369.504, -200.086 )
+scale = Vector2( 419.008, 515.512 )
+z_index = 20
+normal = null
+pressed = null
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = ""
+visibility_mode = 0
+_sections_unfolded = [ "Z Index" ]
+
 [node name="npc1" type="Area2D" parent="." index="2"]
 
 position = Vector2( 2897.43, -229.807 )
@@ -288,7 +298,7 @@ _sections_unfolded = [ "Transform", "Visibility" ]
 
 position = Vector2( -99.3828, -84.7771 )
 scale = Vector2( 0.5, 6.92693 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="npc2" type="Area2D" parent="." index="3"]
@@ -311,7 +321,7 @@ __meta__ = {
 
 position = Vector2( 325.161, -62.2688 )
 scale = Vector2( 0.5, 6.92693 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="npc2" index="1"]
@@ -350,7 +360,7 @@ __meta__ = {
 
 position = Vector2( 61.9355, -20.7117 )
 scale = Vector2( 0.5, 7 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="npc3" index="1"]
@@ -389,7 +399,7 @@ __meta__ = {
 
 position = Vector2( -77.418, -28.4403 )
 scale = Vector2( 0.5, 7 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="npc4" index="1"]
@@ -429,7 +439,7 @@ __meta__ = {
 
 position = Vector2( -108.918, -129.286 )
 scale = Vector2( 0.5, 7 )
-shape = SubResource( 2 )
+shape = SubResource( 5 )
 _sections_unfolded = [ "Transform" ]
 
 [node name="Sprite" type="Sprite" parent="npc5" index="1"]
@@ -470,24 +480,23 @@ visible = false
 position = Vector2( -80.5154, -39.7713 )
 scale = Vector2( 1.02426, 0.93954 )
 z_index = -5
-texture = ExtResource( 18 )
 _sections_unfolded = [ "Transform", "Visibility", "Z Index" ]
 
 [node name="se repite" type="Sprite" parent="FinCasa/Sprite" index="0"]
 
 position = Vector2( -22752.6, -246.912 )
-texture = ExtResource( 19 )
+texture = ExtResource( 18 )
 
 [node name="se repite2" type="Sprite" parent="FinCasa/Sprite" index="1"]
 
 position = Vector2( -21737.4, -742.236 )
-texture = ExtResource( 19 )
+texture = ExtResource( 18 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinCasa" index="1"]
 
 position = Vector2( -237.235, -52.7469 )
 scale = Vector2( 1.02426, 0.93954 )
-shape = SubResource( 3 )
+shape = SubResource( 6 )
 
 [node name="admi" type="Sprite" parent="FinCasa" index="2"]
 
@@ -556,93 +565,93 @@ autostart = false
 
 position = Vector2( -853.126, -567.276 )
 z_index = -99
-texture = ExtResource( 20 )
+texture = ExtResource( 19 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="2" type="Sprite" parent="." index="16"]
 
 position = Vector2( 1058.99, -540.089 )
 z_index = -100
-texture = ExtResource( 21 )
+texture = ExtResource( 20 )
 
 [node name="3" type="Sprite" parent="." index="17"]
 
 position = Vector2( 2978.63, -540.118 )
 z_index = -100
-texture = ExtResource( 22 )
+texture = ExtResource( 21 )
 
 [node name="4" type="Sprite" parent="." index="18"]
 
 position = Vector2( 4898.53, -540.095 )
 z_index = -100
-texture = ExtResource( 23 )
+texture = ExtResource( 22 )
 
 [node name="5" type="Sprite" parent="." index="19"]
 
 position = Vector2( 6817.78, -541.303 )
 z_index = -100
-texture = ExtResource( 24 )
+texture = ExtResource( 23 )
 
 [node name="6" type="Sprite" parent="." index="20"]
 
 position = Vector2( 8738.36, -540.138 )
 z_index = -100
-texture = ExtResource( 25 )
+texture = ExtResource( 24 )
 
 [node name="7" type="Sprite" parent="." index="21"]
 
 position = Vector2( 10649.8, -540.486 )
 z_index = -100
-texture = ExtResource( 26 )
+texture = ExtResource( 25 )
 
 [node name="8" type="Sprite" parent="." index="22"]
 
 position = Vector2( 12567.4, -539.885 )
 z_index = -100
-texture = ExtResource( 27 )
+texture = ExtResource( 26 )
 
 [node name="9" type="Sprite" parent="." index="23"]
 
 position = Vector2( 14486, -540.509 )
 z_index = -100
-texture = ExtResource( 28 )
+texture = ExtResource( 27 )
 
 [node name="10" type="Sprite" parent="." index="24"]
 
 position = Vector2( 16405.7, -540.932 )
 z_index = -100
-texture = ExtResource( 29 )
+texture = ExtResource( 28 )
 
 [node name="11" type="Sprite" parent="." index="25"]
 
 position = Vector2( 18323.2, -540.961 )
 z_index = -100
-texture = ExtResource( 30 )
+texture = ExtResource( 29 )
 
 [node name="12" type="Sprite" parent="." index="26"]
 
 position = Vector2( 20237.7, -540.655 )
 z_index = -100
-texture = ExtResource( 31 )
+texture = ExtResource( 30 )
 
 [node name="13" type="Sprite" parent="." index="27"]
 
 position = Vector2( 22155.9, -541.169 )
 z_index = -100
-texture = ExtResource( 20 )
+texture = ExtResource( 19 )
 
 [node name="14" type="Sprite" parent="." index="28"]
 
 position = Vector2( 24072.7, -543.076 )
 z_index = -100
-texture = ExtResource( 21 )
+texture = ExtResource( 20 )
 
 [node name="se repite" type="Sprite" parent="." index="29"]
 
 position = Vector2( 142.078, -261.398 )
 scale = Vector2( 2, 2 )
 z_index = -200
-texture = ExtResource( 19 )
+texture = ExtResource( 18 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="se repite2" type="Sprite" parent="." index="30"]
@@ -650,7 +659,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 position = Vector2( 3767.85, -267.23 )
 scale = Vector2( 2, 2 )
 z_index = -200
-texture = ExtResource( 19 )
+texture = ExtResource( 18 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="se repite3" type="Sprite" parent="." index="31"]
@@ -658,7 +667,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 position = Vector2( 7497.25, -267.23 )
 scale = Vector2( 2, 2 )
 z_index = -200
-texture = ExtResource( 19 )
+texture = ExtResource( 18 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="se repite4" type="Sprite" parent="." index="32"]
@@ -666,7 +675,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 position = Vector2( 11073.2, -400.239 )
 scale = Vector2( 2, 2 )
 z_index = -200
-texture = ExtResource( 19 )
+texture = ExtResource( 18 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="se repite5" type="Sprite" parent="." index="33"]
@@ -674,7 +683,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 position = Vector2( 14742.5, -614.188 )
 scale = Vector2( 2, 2 )
 z_index = -200
-texture = ExtResource( 19 )
+texture = ExtResource( 18 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="se repite6" type="Sprite" parent="." index="34"]
@@ -682,7 +691,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 position = Vector2( 18492, -540.801 )
 scale = Vector2( 2, 2 )
 z_index = -200
-texture = ExtResource( 19 )
+texture = ExtResource( 18 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="se repite7" type="Sprite" parent="." index="35"]
@@ -690,7 +699,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 position = Vector2( 22214.7, -454.071 )
 scale = Vector2( 2, 2 )
 z_index = -200
-texture = ExtResource( 19 )
+texture = ExtResource( 18 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="se repite8" type="Sprite" parent="." index="36"]
@@ -698,7 +707,7 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 position = Vector2( 25683.9, -320.64 )
 scale = Vector2( 2, 2 )
 z_index = -200
-texture = ExtResource( 19 )
+texture = ExtResource( 18 )
 _sections_unfolded = [ "Transform", "Z Index" ]
 
 [node name="segundoPlano" type="Node" parent="." index="37"]
@@ -707,86 +716,86 @@ _sections_unfolded = [ "Transform", "Z Index" ]
 
 position = Vector2( -862.373, -545.515 )
 z_index = -150
-texture = ExtResource( 32 )
+texture = ExtResource( 31 )
 
 [node name="2" type="Sprite" parent="segundoPlano" index="1"]
 
 position = Vector2( 1054.3, -537.324 )
 z_index = -150
-texture = ExtResource( 33 )
+texture = ExtResource( 32 )
 
 [node name="3" type="Sprite" parent="segundoPlano" index="2"]
 
 position = Vector2( 2880.87, -561.897 )
 z_index = -150
-texture = ExtResource( 34 )
+texture = ExtResource( 33 )
 
 [node name="4" type="Sprite" parent="segundoPlano" index="3"]
 
 position = Vector2( 4756.59, -578.279 )
 z_index = -150
-texture = ExtResource( 35 )
+texture = ExtResource( 34 )
 
 [node name="5" type="Sprite" parent="segundoPlano" index="4"]
 
 position = Vector2( 6625.68, -633.018 )
 z_index = -150
-texture = ExtResource( 36 )
+texture = ExtResource( 35 )
 
 [node name="6" type="Sprite" parent="segundoPlano" index="5"]
 
 position = Vector2( 8467.42, -634.443 )
 z_index = -150
-texture = ExtResource( 37 )
+texture = ExtResource( 36 )
 
 [node name="7" type="Sprite" parent="segundoPlano" index="6"]
 
 position = Vector2( 10284.2, -531.196 )
 scale = Vector2( 1.09435, 1 )
 z_index = -150
-texture = ExtResource( 38 )
+texture = ExtResource( 37 )
 
 [node name="9" type="Sprite" parent="segundoPlano" index="7"]
 
 position = Vector2( 14118.8, -511.326 )
 z_index = -150
-texture = ExtResource( 39 )
+texture = ExtResource( 38 )
 
 [node name="10" type="Sprite" parent="segundoPlano" index="8"]
 
 position = Vector2( 16009.8, -511.326 )
 z_index = -150
-texture = ExtResource( 40 )
+texture = ExtResource( 39 )
 
 [node name="11" type="Sprite" parent="segundoPlano" index="9"]
 
 position = Vector2( 17906.3, -522.194 )
 z_index = -150
-texture = ExtResource( 41 )
+texture = ExtResource( 40 )
 
 [node name="15" type="Sprite" parent="segundoPlano" index="10"]
 
 position = Vector2( 12282.1, -520.328 )
 z_index = -150
-texture = ExtResource( 42 )
+texture = ExtResource( 41 )
 
 [node name="16" type="Sprite" parent="segundoPlano" index="11"]
 
 position = Vector2( 19759.3, -516.76 )
 z_index = -150
-texture = ExtResource( 43 )
+texture = ExtResource( 42 )
 
 [node name="17" type="Sprite" parent="segundoPlano" index="12"]
 
 position = Vector2( 22268.2, -340.222 )
 z_index = -150
-texture = ExtResource( 32 )
+texture = ExtResource( 31 )
 
 [node name="18" type="Sprite" parent="segundoPlano" index="13"]
 
 position = Vector2( 21453.1, -625.441 )
 z_index = -150
-texture = ExtResource( 36 )
+texture = ExtResource( 35 )
 
 [connection signal="timeout" from="3secTimer1" to="npc1" method="_on_3secTimer1_timeout"]
 

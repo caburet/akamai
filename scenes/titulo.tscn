@@ -4,7 +4,7 @@
 [ext_resource path="res://scripts/title.gd" type="Script" id=2]
 [ext_resource path="res://sonidos/328297__felix-blume__forest-at-dawn-with-birds-chachalacas-crickets-and-insects-in-the-sian-ka-an-biosphere-reserve.ogg" type="AudioStream" id=3]
 
-[node name="Node" type="Node" index="0"]
+[node name="Node" type="Node"]
 
 [node name="title" type="Sprite" parent="." index="0"]
 

@@ -6,7 +6,8 @@ var velocidad=2000
 
 func _physics_process(delta):
 	motion.y =+200
-	if Input.is_action_pressed("ui_right" ) and not interactuando:
+	print ($buttonrigth.is_pressed())
+	if (Input.is_action_pressed("ui_right" ) or $buttonrigth.is_pressed() )and not interactuando:
 		motion.x = velocidad
 		get_node( "Sprite" ).set_flip_h( false )
 	elif Input.is_action_pressed("ui_left") and not interactuando :
@@ -20,3 +21,8 @@ func _physics_process(delta):
 	pass
 func set_interactuando(cosa1):
 	interactuando=cosa1
+
+func _on_TouchScreenButton_pressed():
+	motion.x = velocidad
+	get_node( "Sprite" ).set_flip_h( false )
+	pass # replace with function body
