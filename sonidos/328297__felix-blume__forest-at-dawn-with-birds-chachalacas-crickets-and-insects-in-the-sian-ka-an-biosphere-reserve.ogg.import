@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/328297__felix-blume__forest-at-dawn-with-birds-chachalacas-crickets-and-insects-in-the-sian-ka-an-biosphere-reserve.ogg-a6deb486631f62b3ed31e86e35ef4267.oggstr"
+
+[deps]
+
+source_file="res://sonidos/328297__felix-blume__forest-at-dawn-with-birds-chachalacas-crickets-and-insects-in-the-sian-ka-an-biosphere-reserve.ogg"
+dest_files=[ "res://.import/328297__felix-blume__forest-at-dawn-with-birds-chachalacas-crickets-and-insects-in-the-sian-ka-an-biosphere-reserve.ogg-a6deb486631f62b3ed31e86e35ef4267.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/protagonista pregunta_corta.ogg-19f45d811537d806b051cc95e36279a1.oggstr"
+
+[deps]
+
+source_file="res://voces/protagonista pregunta_corta.ogg"
+dest_files=[ "res://.import/protagonista pregunta_corta.ogg-19f45d811537d806b051cc95e36279a1.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/mujer_largo.ogg-9b58c451190df3ea22816d217321a547.oggstr"
+
+[deps]
+
+source_file="res://voces/mujer_largo.ogg"
+dest_files=[ "res://.import/mujer_largo.ogg-9b58c451190df3ea22816d217321a547.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

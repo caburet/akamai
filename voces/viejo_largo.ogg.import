@@ -1,0 +1,15 @@
+[remap]
+
+importer="ogg_vorbis"
+type="AudioStreamOGGVorbis"
+path="res://.import/viejo_largo.ogg-a7b85e0ebfaa0a433875143dc34d89b9.oggstr"
+
+[deps]
+
+source_file="res://voces/viejo_largo.ogg"
+dest_files=[ "res://.import/viejo_largo.ogg-a7b85e0ebfaa0a433875143dc34d89b9.oggstr" ]
+
+[params]
+
+loop=true
+loop_offset=0

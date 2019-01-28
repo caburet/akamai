@@ -1,0 +1,33 @@
+; Engine configuration file.
+; It's best edited using the editor UI and not directly,
+; since the parameters that go here are not all obvious.
+;
+; Format:
+;   [section] ; section goes between []
+;   param=value ; assign values to parameters
+
+config_version=3
+
+[application]
+
+config/name="jam2019"
+run/main_scene="res://titulo.tscn"
+config/icon="res://icon.png"
+
+[autoload]
+
+logica="*res://logica.gd"
+
+[display]
+
+window/size/height=768
+window/size/resizable=false
+
+[global]
+
+fullscreen=true
+screen=false
+
+[rendering]
+
+environment/default_environment="res://default_env.tres"
