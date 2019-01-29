@@ -85,7 +85,7 @@ extents = Vector2( 127.345, 28.004 )
 custom_solver_bias = 0.0
 extents = Vector2( 54.4719, 106.63 )
 
-[node name="World" type="Node2D"]
+[node name="World" type="Node2D" index="0"]
 
 [node name="TimeFade" type="Timer" parent="." index="0"]
 
@@ -809,7 +809,7 @@ shape_centered = true
 shape_visible = true
 passby_press = false
 action = "ui_left"
-visibility_mode = 0
+visibility_mode = 1
 
 [node name="up" type="TouchScreenButton" parent="CanvasLayer" index="1"]
 
@@ -823,7 +823,7 @@ shape_centered = true
 shape_visible = true
 passby_press = false
 action = "ui_up"
-visibility_mode = 0
+visibility_mode = 1
 
 [node name="right" type="TouchScreenButton" parent="CanvasLayer" index="2"]
 
@@ -837,7 +837,7 @@ shape_centered = true
 shape_visible = true
 passby_press = false
 action = "ui_right"
-visibility_mode = 0
+visibility_mode = 1
 
 [connection signal="timeout" from="3secTimer1" to="npc1" method="_on_3secTimer1_timeout"]
 
