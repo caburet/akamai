@@ -6,8 +6,7 @@ var velocidad=2000
 
 func _physics_process(delta):
 	motion.y =+200
-	print ($buttonrigth.is_pressed())
-	if (Input.is_action_pressed("ui_right" ) or $buttonrigth.is_pressed() )and not interactuando:
+	if (Input.is_action_pressed("ui_right" ) )and not interactuando:
 		motion.x = velocidad
 		get_node( "Sprite" ).set_flip_h( false )
 	elif Input.is_action_pressed("ui_left") and not interactuando :

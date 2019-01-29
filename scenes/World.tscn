@@ -1,4 +1,4 @@
-[gd_scene load_steps=50 format=2]
+[gd_scene load_steps=52 format=2]
 
 [ext_resource path="res://scripts/KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://Personajes GGJ2019/protagonist.png" type="Texture" id=2]
@@ -42,7 +42,9 @@
 [ext_resource path="res://fondo/segundo plano/11.png" type="Texture" id=40]
 [ext_resource path="res://fondo/segundo plano/8.png" type="Texture" id=41]
 [ext_resource path="res://fondo/segundo plano/12.png" type="Texture" id=42]
-[ext_resource path="res://imagenes/icon.png" type="Texture" id=43]
+[ext_resource path="res://imagenes/Black_Left_Arrow.png" type="Texture" id=43]
+[ext_resource path="res://imagenes/Black_Up_Arrow.png" type="Texture" id=44]
+[ext_resource path="res://imagenes/Black_Right_Arrow.png" type="Texture" id=45]
 
 [sub_resource type="CircleShape2D" id=1]
 
@@ -83,7 +85,7 @@ extents = Vector2( 127.345, 28.004 )
 custom_solver_bias = 0.0
 extents = Vector2( 54.4719, 106.63 )
 
-[node name="World" type="Node2D" index="0"]
+[node name="World" type="Node2D"]
 
 [node name="TimeFade" type="Timer" parent="." index="0"]
 
@@ -244,24 +246,6 @@ position = Vector2( 682.415, -654.201 )
 scale = Vector2( 2.20748, 7.01216 )
 texture = ExtResource( 5 )
 _sections_unfolded = [ "Animation", "Material", "Region", "Transform" ]
-
-[node name="Sprite2" type="Sprite" parent="player" index="9"]
-
-[node name="buttonrigth" type="TouchScreenButton" parent="player" index="10"]
-
-position = Vector2( -369.504, -200.086 )
-scale = Vector2( 419.008, 515.512 )
-z_index = 20
-normal = null
-pressed = null
-bitmask = null
-shape = null
-shape_centered = true
-shape_visible = true
-passby_press = false
-action = ""
-visibility_mode = 0
-_sections_unfolded = [ "Z Index" ]
 
 [node name="npc1" type="Area2D" parent="." index="2"]
 
@@ -813,9 +797,47 @@ rotation = 0.0
 scale = Vector2( 1, 1 )
 transform = Transform2D( 1, 0, 0, 1, 0, 0 )
 
-[node name="Sprite" type="Sprite" parent="CanvasLayer" index="0"]
+[node name="left" type="TouchScreenButton" parent="CanvasLayer" index="0"]
 
-texture = ExtResource( 43 )
+position = Vector2( 23.2949, 633.624 )
+scale = Vector2( 1.84091, 1.80266 )
+normal = ExtResource( 43 )
+pressed = ExtResource( 43 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = "ui_left"
+visibility_mode = 0
+
+[node name="up" type="TouchScreenButton" parent="CanvasLayer" index="1"]
+
+position = Vector2( 486.34, 604.963 )
+scale = Vector2( 0.420123, 0.346741 )
+normal = ExtResource( 44 )
+pressed = ExtResource( 44 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = "ui_up"
+visibility_mode = 0
+
+[node name="right" type="TouchScreenButton" parent="CanvasLayer" index="2"]
+
+position = Vector2( 783.732, 633.623 )
+scale = Vector2( 1.84091, 1.80266 )
+normal = ExtResource( 45 )
+pressed = ExtResource( 45 )
+bitmask = null
+shape = null
+shape_centered = true
+shape_visible = true
+passby_press = false
+action = "ui_right"
+visibility_mode = 0
 
 [connection signal="timeout" from="3secTimer1" to="npc1" method="_on_3secTimer1_timeout"]
 
@@ -826,5 +848,11 @@ texture = ExtResource( 43 )
 [connection signal="timeout" from="3secTimer4" to="npc4" method="_on_3secTimer4_timeout"]
 
 [connection signal="timeout" from="3secTimer5" to="npc5" method="_on_3secTimer5_timeout"]
+
+[connection signal="pressed" from="CanvasLayer/left" to="player" method="_on_TouchScreenButton_pressed"]
+
+[connection signal="pressed" from="CanvasLayer/up" to="player" method="_on_TouchScreenButton_pressed"]
+
+[connection signal="pressed" from="CanvasLayer/right" to="player" method="_on_TouchScreenButton_pressed"]
 
 

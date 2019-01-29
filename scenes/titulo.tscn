@@ -4,7 +4,7 @@
 [ext_resource path="res://scripts/title.gd" type="Script" id=2]
 [ext_resource path="res://sonidos/328297__felix-blume__forest-at-dawn-with-birds-chachalacas-crickets-and-insects-in-the-sian-ka-an-biosphere-reserve.ogg" type="AudioStream" id=3]
 
-[node name="Node" type="Node"]
+[node name="Node" type="Node" index="0"]
 
 [node name="title" type="Sprite" parent="." index="0"]
 
@@ -21,5 +21,31 @@ pitch_scale = 1.0
 autoplay = true
 mix_target = 0
 bus = "Master"
+
+[node name="Camera2D" type="Camera2D" parent="." index="2"]
+
+position = Vector2( 509.993, 380.177 )
+anchor_mode = 1
+rotating = false
+current = false
+zoom = Vector2( 1, 1 )
+limit_left = -10000000
+limit_top = -10000000
+limit_right = 10000000
+limit_bottom = 10000000
+limit_smoothed = false
+drag_margin_h_enabled = true
+drag_margin_v_enabled = true
+smoothing_enabled = false
+smoothing_speed = 5.0
+offset_v = 0.0
+offset_h = 0.0
+drag_margin_left = 0.2
+drag_margin_top = 0.2
+drag_margin_right = 0.2
+drag_margin_bottom = 0.2
+editor_draw_screen = true
+editor_draw_limits = false
+editor_draw_drag_margin = false
 
 
