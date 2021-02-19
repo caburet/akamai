@@ -1,4 +1,4 @@
-[gd_scene load_steps=30 format=2]
+[gd_scene load_steps=33 format=2]
 
 [ext_resource path="res://scripts/KinematicBody2D.gd" type="Script" id=1]
 [ext_resource path="res://Personajes GGJ2019/protagonist.png" type="Texture" id=2]
@@ -19,34 +19,54 @@
 [ext_resource path="res://scripts/FinCasa.gd" type="Script" id=17]
 [ext_resource path="res://fondo/se repite.png" type="Texture" id=18]
 [ext_resource path="res://scenes/background.tscn" type="PackedScene" id=19]
+[ext_resource path="res://imagenes/white.png" type="Texture" id=20]
 [ext_resource path="res://imagenes/Black_Left_Arrow.png" type="Texture" id=43]
 [ext_resource path="res://imagenes/Black_Up_Arrow.png" type="Texture" id=44]
 [ext_resource path="res://imagenes/Black_Right_Arrow.png" type="Texture" id=45]
 
-[sub_resource type="CircleShape2D" id=1]
+[sub_resource type="Shader" id=1]
+code = "shader_type canvas_item;
+
+uniform float radius = 3.0;
+
+void fragment() {
+	vec2 uv = SCREEN_UV;
+	vec2 surface = vec2(0.5, 0.2);
+	vec2 center = surface - vec2(0, radius);
+	float base = length(uv - center);
+	float height = base - radius;
+	float xdiff = (uv.x - surface.x) / base * height;
+	uv = clamp(vec2 (uv.x - xdiff, surface.y + height), vec2(0.0, 0.0), vec2(1.0, 1.0));
+	COLOR.rgb = textureLod(SCREEN_TEXTURE, uv, 0.0).rgb;
+}"
+
+[sub_resource type="ShaderMaterial" id=2]
+shader = SubResource( 1 )
+shader_param/radius = 2.0
+
+[sub_resource type="CircleShape2D" id=3]
 radius = 218.402
 
-[sub_resource type="DynamicFont" id=2]
+[sub_resource type="DynamicFont" id=4]
 size = 14
 use_mipmaps = true
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=3]
+[sub_resource type="DynamicFont" id=5]
 size = 14
 font_data = ExtResource( 3 )
 
-[sub_resource type="DynamicFont" id=4]
+[sub_resource type="DynamicFont" id=6]
 size = 14
 font_data = ExtResource( 3 )
 
-[sub_resource type="RectangleShape2D" id=5]
+[sub_resource type="RectangleShape2D" id=7]
 extents = Vector2( 127.345, 28.004 )
 
-[sub_resource type="RectangleShape2D" id=6]
+[sub_resource type="RectangleShape2D" id=8]
 extents = Vector2( 54.4719, 106.63 )
 
-[sub_resource type="Animation" id=7]
-resource_name = "New Anim"
+[sub_resource type="Animation" id=9]
 tracks/0/type = "value"
 tracks/0/path = NodePath("CanvasModulate:color")
 tracks/0/interp = 1
@@ -72,6 +92,18 @@ __meta__ = {
 "_edit_group_": true
 }
 
+[node name="TextureRect" type="TextureRect" parent="player"]
+material = SubResource( 2 )
+margin_left = -718.416
+margin_top = -526.162
+margin_right = -654.416
+margin_bottom = -462.162
+rect_scale = Vector2( 25, 13 )
+texture = ExtResource( 20 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
 [node name="Sprite" type="Sprite" parent="player"]
 position = Vector2( -163.289, -6.13867 )
 scale = Vector2( 4, 4 )
@@ -80,7 +112,7 @@ texture = ExtResource( 2 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 position = Vector2( -184.229, -49.4984 )
 scale = Vector2( 0.536291, 0.986044 )
-shape = SubResource( 1 )
+shape = SubResource( 3 )
 
 [node name="Opcion2" type="Label" parent="player"]
 anchor_left = 1.0
@@ -91,7 +123,7 @@ margin_left = -63.0
 margin_top = -176.329
 margin_right = 86.0
 margin_bottom = -118.329
-custom_fonts/font = SubResource( 2 )
+custom_fonts/font = SubResource( 4 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 valign = 1
@@ -106,7 +138,7 @@ margin_left = -370.873
 margin_top = -165.202
 margin_right = -233.873
 margin_bottom = -107.202
-custom_fonts/font = SubResource( 3 )
+custom_fonts/font = SubResource( 5 )
 align = 1
 valign = 1
 uppercase = true
@@ -121,7 +153,7 @@ margin_top = -440.075
 margin_right = 194.018
 margin_bottom = -146.075
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 4 )
+custom_fonts/font = SubResource( 6 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 valign = 1
 autowrap = true
@@ -176,7 +208,7 @@ texture = ExtResource( 8 )
 [node name="iniciar charla" type="CollisionShape2D" parent="npc1"]
 position = Vector2( -99.3828, -84.7771 )
 scale = Vector2( 0.5, 6.92693 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="npc2" type="Area2D" parent="."]
 position = Vector2( 7047.76, -221.818 )
@@ -189,7 +221,7 @@ __meta__ = {
 [node name="iniciar charla" type="CollisionShape2D" parent="npc2"]
 position = Vector2( 325.161, -62.2688 )
 scale = Vector2( 0.5, 6.92693 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="npc2"]
 position = Vector2( 335.678, -106.042 )
@@ -213,7 +245,7 @@ __meta__ = {
 [node name="iniciar charla" type="CollisionShape2D" parent="npc3"]
 position = Vector2( 61.9355, -20.7117 )
 scale = Vector2( 0.5, 7 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="npc3"]
 position = Vector2( 276.132, -162.72 )
@@ -237,7 +269,7 @@ __meta__ = {
 [node name="iniciar charla" type="CollisionShape2D" parent="npc4"]
 position = Vector2( -77.418, -28.4403 )
 scale = Vector2( 0.5, 7 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="npc4"]
 position = Vector2( 62.8281, -152.41 )
@@ -262,7 +294,7 @@ __meta__ = {
 [node name="iniciar charla" type="CollisionShape2D" parent="npc5"]
 position = Vector2( -108.918, -129.286 )
 scale = Vector2( 0.5, 7 )
-shape = SubResource( 5 )
+shape = SubResource( 7 )
 
 [node name="Sprite" type="Sprite" parent="npc5"]
 position = Vector2( 5.41602, -173.309 )
@@ -301,7 +333,7 @@ texture = ExtResource( 18 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinCasa"]
 position = Vector2( -237.235, -52.7469 )
 scale = Vector2( 1.02426, 0.93954 )
-shape = SubResource( 6 )
+shape = SubResource( 8 )
 
 [node name="admi" type="Sprite" parent="FinCasa"]
 position = Vector2( -241.039, -387.083 )
@@ -369,7 +401,7 @@ __meta__ = {
 color = Color( 0.956863, 0.898039, 0.898039, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-"anims/New Anim" = SubResource( 7 )
+"anims/New Anim" = SubResource( 9 )
 
 [node name="background" parent="." instance=ExtResource( 19 )]
 position = Vector2( 12, 0 )

@@ -2,7 +2,7 @@ extends KinematicBody2D
 
 var motion = Vector2()
 var interactuando= false
-var velocidad=20000
+var velocidad=2000
 
 func _physics_process(delta):
 	motion.y =+200
