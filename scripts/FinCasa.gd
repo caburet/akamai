@@ -21,7 +21,7 @@ func _physics_process(delta):
 func _on_AnimationPlayer_animation_finished(anim_name):
 	get_node("../player").position= get_node ("../Inicio").position
 	$"../AnimationPlayer".stop(true)
-	$"../CanvasModulate".set_color("#f4e5e5")
+	$"../Cavas_day_nigth".set_color("#f4e5e5")
 	day+=1
 	print (day)
 	$"../CanvasLayer/DayLabel".text="Day "+str(day)

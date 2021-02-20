@@ -3,16 +3,28 @@ extends KinematicBody2D
 var motion = Vector2()
 var interactuando= false
 var velocidad=2000
-
+var max_pos=23000
+var ligth_max_pox = [-3600,-3700]
+var colors=['#ffffff','#ebd4d4','#ddbdbd','#bb9b9b','#a18686','#776767','#352d2d']
+var colornr =0
 func _physics_process(delta):
+	#colornr=int(self.position.x/max_pos*6)
+	#print (colornr)
+	#$"../Cavas_day_nigth".color=colors[colornr]
+	$sun.position.x = (self.position.x/max_pos * ligth_max_pox[0])
+	#$sun.position.y = (self.position.x/max_pos * ligth_max_pox[1])
+	#print ($sun.position)
 	motion.y =+200
 	if (Input.is_action_pressed("ui_right" ) )and not interactuando:
 		motion.x = velocidad
+		$Sprite/Anim_pj.play('walk')
 		get_node( "Sprite" ).set_flip_h( false )
 	elif Input.is_action_pressed("ui_left") and not interactuando :
 		motion.x = -velocidad
+		$Sprite/Anim_pj.play('walk')
 		get_node( "Sprite" ).set_flip_h( true )
 	else:
+		$Sprite/Anim_pj.play('walk')
 		motion.x = 0
 		motion.y = 0
 	

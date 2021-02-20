@@ -1,7 +1,7 @@
-[gd_scene load_steps=33 format=2]
+[gd_scene load_steps=36 format=2]
 
 [ext_resource path="res://scripts/KinematicBody2D.gd" type="Script" id=1]
-[ext_resource path="res://Personajes GGJ2019/protagonist.png" type="Texture" id=2]
+[ext_resource path="res://Personajes GGJ2019/protagonist_sheet.png" type="Texture" id=2]
 [ext_resource path="res://PressStart2P.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://musica/cancion.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Personajes GGJ2019/fader.jpg" type="Texture" id=5]
@@ -20,6 +20,7 @@
 [ext_resource path="res://fondo/se repite.png" type="Texture" id=18]
 [ext_resource path="res://scenes/background.tscn" type="PackedScene" id=19]
 [ext_resource path="res://imagenes/white.png" type="Texture" id=20]
+[ext_resource path="res://imagenes/light_shadow_light.png" type="Texture" id=21]
 [ext_resource path="res://imagenes/Black_Left_Arrow.png" type="Texture" id=43]
 [ext_resource path="res://imagenes/Black_Up_Arrow.png" type="Texture" id=44]
 [ext_resource path="res://imagenes/Black_Right_Arrow.png" type="Texture" id=45]
@@ -43,6 +44,38 @@ void fragment() {
 [sub_resource type="ShaderMaterial" id=2]
 shader = SubResource( 1 )
 shader_param/radius = 2.0
+
+[sub_resource type="Animation" id=10]
+resource_name = "idle"
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0 ),
+"transitions": PoolRealArray( 1 ),
+"update": 1,
+"values": [ 0 ]
+}
+
+[sub_resource type="Animation" id=11]
+resource_name = "walk"
+length = 0.5
+loop = true
+tracks/0/type = "value"
+tracks/0/path = NodePath(".:frame")
+tracks/0/interp = 1
+tracks/0/loop_wrap = true
+tracks/0/imported = false
+tracks/0/enabled = true
+tracks/0/keys = {
+"times": PoolRealArray( 0, 0.1, 0.2, 0.3, 0.4, 0.5 ),
+"transitions": PoolRealArray( 1, 1, 1, 1, 1, 1 ),
+"update": 1,
+"values": [ 0, 1, 2, 3, 4, 0 ]
+}
 
 [sub_resource type="CircleShape2D" id=3]
 radius = 218.402
@@ -68,7 +101,7 @@ extents = Vector2( 54.4719, 106.63 )
 
 [sub_resource type="Animation" id=9]
 tracks/0/type = "value"
-tracks/0/path = NodePath("CanvasModulate:color")
+tracks/0/path = NodePath("Cavas_day_nigth:color")
 tracks/0/interp = 1
 tracks/0/loop_wrap = true
 tracks/0/imported = false
@@ -94,11 +127,11 @@ __meta__ = {
 
 [node name="TextureRect" type="TextureRect" parent="player"]
 material = SubResource( 2 )
-margin_left = -718.416
-margin_top = -526.162
-margin_right = -654.416
-margin_bottom = -462.162
-rect_scale = Vector2( 25, 13 )
+margin_left = -864.567
+margin_top = -798.305
+margin_right = -800.567
+margin_bottom = -734.305
+rect_scale = Vector2( 30, 22 )
 texture = ExtResource( 20 )
 __meta__ = {
 "_edit_use_anchors_": false
@@ -108,6 +141,12 @@ __meta__ = {
 position = Vector2( -163.289, -6.13867 )
 scale = Vector2( 4, 4 )
 texture = ExtResource( 2 )
+hframes = 5
+frame = 1
+
+[node name="Anim_pj" type="AnimationPlayer" parent="player/Sprite"]
+anims/idle = SubResource( 10 )
+anims/walk = SubResource( 11 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 position = Vector2( -184.229, -49.4984 )
@@ -170,6 +209,7 @@ autoplay = true
 
 [node name="Camera2D" type="Camera2D" parent="player"]
 current = true
+zoom = Vector2( 1.3, 1.3 )
 limit_left = 0
 limit_bottom = -25
 drag_margin_h_enabled = true
@@ -184,6 +224,13 @@ modulate = Color( 1, 1, 1, 0 )
 position = Vector2( 682.415, -654.201 )
 scale = Vector2( 2.20748, 7.01216 )
 texture = ExtResource( 5 )
+
+[node name="sun" type="Light2D" parent="player"]
+position = Vector2( -37.7551, -943.874 )
+scale = Vector2( 15, 15 )
+texture = ExtResource( 21 )
+energy = 1.3
+mode = 2
 
 [node name="npc1" type="Area2D" parent="."]
 position = Vector2( 2897.43, -229.807 )
@@ -397,7 +444,8 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
-[node name="CanvasModulate" type="CanvasModulate" parent="."]
+[node name="Cavas_day_nigth" type="CanvasModulate" parent="."]
+scale = Vector2( 30, 30 )
 color = Color( 0.956863, 0.898039, 0.898039, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
