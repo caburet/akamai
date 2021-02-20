@@ -8,7 +8,7 @@ var opcion1
 var opcion2 
 var count =0
 var end =0
-var last_press = 0
+
 var nomore = false
 
 func _physics_process(delta):
@@ -17,18 +17,7 @@ func _physics_process(delta):
 		$burbuja.visible=false
 	else:
 		$burbuja.visible=true
-	if Input.is_action_pressed("ui_right"):
-		last_press = 0
-		print (get_node("../player").interactuando)
-	if Input.is_action_pressed("ui_left"):
-		last_press =1	
-	if last_press == 0:
-		get_node("../player/Opcion1").add_color_override("font_color", Color(0,0,0))
-		get_node("../player/Opcion2").add_color_override("font_color", Color(0,0,1))
-	if last_press==1:
-		get_node("../player/Opcion1").add_color_override("font_color", Color(0,0,1))
-		get_node("../player/Opcion2").add_color_override("font_color", Color(0,0,0))
-	
+
 	var bodies = get_overlapping_bodies()
 	mensaje.set_visible(false)
 	
@@ -43,7 +32,7 @@ func _physics_process(delta):
 			if nomore:
 				mensaje.set_visible(false)
 				get_node("../player").set_interactuando(false) 
-			if Input.is_action_just_pressed("ui_up") and get_node("../player").interactuando == false:
+			if (Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_accept")) and get_node("../player").interactuando == false:
 				logicadic = logica.npc_talk(int(nombre))
 				print (logicadic)
 				if logicadic:
@@ -71,16 +60,16 @@ func _physics_process(delta):
 				else:
 					nomore = true
 			else:
-				if Input.is_action_just_pressed("ui_up") and get_node("../player").interactuando == true:
+				if (Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_accept")) and get_node("../player").interactuando == true:
 					end=1
 					get_node("../3secTimer"+nombre).start()
 					print (opcion1)
 					print (opcion2)
-					if last_press == 0:
+					if $"../player".last_press == 0:
 						logica.npc_set_state(int(nombre),opcion2.valor)
 						textos = opcion2.selected
 						textoslen = len(opcion2.selected)
-					if last_press==1:
+					if $"../player".last_press==1:
 						logica.npc_set_state(int(nombre),opcion1.valor)
 						textos = opcion1.selected
 						textoslen = len(opcion1.selected)						

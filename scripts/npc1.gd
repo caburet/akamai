@@ -8,7 +8,6 @@ var opcion1
 var opcion2 
 var count =0
 var end =0
-var last_press = 0
 var nomore = false
 func _physics_process(delta):
 
@@ -16,46 +15,26 @@ func _physics_process(delta):
 		$burbuja.visible=false
 	else:
 		$burbuja.visible=true
-	if Input.is_action_pressed("ui_right"):
-		last_press = 0
-		print (get_node("../player").interactuando)
-	if Input.is_action_pressed("ui_left"):
-		last_press =1	
-	if last_press == 0:
-		get_node("../player/Opcion1").add_color_override("font_color", Color(0,0,0))
-		get_node("../player/Opcion2").add_color_override("font_color", Color(0,0,1))
-	if last_press==1:
-		get_node("../player/Opcion1").add_color_override("font_color", Color(0,0,1))
-		get_node("../player/Opcion2").add_color_override("font_color", Color(0,0,0))
-	
+
 	var bodies = get_overlapping_bodies()
 	mensaje.set_visible(false)
 	
 	for body in bodies:
-#		print (bodies)
 		if body.name =="player":
-#			print(body.name+" quiere hablar con vos "+ nombre)
-			
 			if get_node("../player").interactuando == false:
 				mensaje.set_visible(true)
-		#	print(body.name+" quiere hablar con vos "+ nombre)
 			if nomore:
 				mensaje.set_visible(false)
 				get_node("../player").set_interactuando(false) 
-			if Input.is_action_just_pressed("ui_up") and get_node("../player").interactuando == false:
+			if (Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_accept")) and get_node("../player").interactuando == false:
 				logicadic = logica.npc_talk(int(nombre))
-				print (logicadic)
 				if logicadic:
 					get_node("../player").interactuando = true
-					print (logicadic)
-					print (get_node("../player").interactuando)
 					textos = logicadic.textos
 					textoslen = len(logicadic.textos)
-					print (textos)
 					opcion1 = logicadic.opcion1
 					opcion2 = logicadic.opcion2
 					mensaje.set_visible(false)
-					#get_node("../player").set_interactuando(true) 
 					count=0
 					get_node("../3secTimer"+nombre).start()
 					get_node("../player/Pregunta").set_text(str (textos[0].texto))
@@ -65,25 +44,20 @@ func _physics_process(delta):
 					get_node("../player/Opcion1").visible = true
 					get_node("../player/Opcion2").visible = true
 					get_node("../player/fondo").visible = true
-					print("*********************************************")
-					print(get_node("../player").interactuando)
 				else:
 					nomore = true
 			else:
-				if Input.is_action_just_pressed("ui_up") and get_node("../player").interactuando == true:
+				if (Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_accept")) and get_node("../player").interactuando == true:
 					end=1
 					get_node("../3secTimer1").start()
-					print (opcion1)
-					print (opcion2)
-					if last_press == 0:
+					if $"../player".last_press == 0:
 						logica.npc_set_state(1,opcion2.valor)
 						textos = opcion2.selected
 						textoslen = len(opcion2.selected)
-					if last_press==1:
+					if $"../player".last_press==1:
 						logica.npc_set_state(1,opcion1.valor)
 						textos = opcion1.selected
 						textoslen = len(opcion1.selected)						
-					#get_node("../player").interactuando = false
 					get_node("../player/Opcion1").visible = false
 					get_node("../player/Opcion2").visible = false
 		pass

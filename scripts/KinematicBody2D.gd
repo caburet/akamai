@@ -7,7 +7,20 @@ var max_pos=23000
 var ligth_max_pox = [-3600,-3700]
 var colors=['#ffffff','#ebd4d4','#ddbdbd','#bb9b9b','#a18686','#776767','#352d2d']
 var colornr =0
+var last_press = 0
 func _physics_process(delta):
+
+	if Input.is_action_pressed("ui_right"):
+		last_press = 0
+	if Input.is_action_pressed("ui_left"):
+		last_press =1	
+	if last_press == 0:
+		$Opcion1.add_color_override("font_color", Color(0,0,0))
+		$Opcion2.add_color_override("font_color", Color(0,0,1))
+	if last_press==1:
+		$Opcion1.add_color_override("font_color", Color(0,0,1))
+		$Opcion2.add_color_override("font_color", Color(0,0,0))
+	
 	#colornr=int(self.position.x/max_pos*6)
 	#print (colornr)
 	#$"../Cavas_day_nigth".color=colors[colornr]
