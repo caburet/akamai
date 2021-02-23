@@ -10,7 +10,12 @@ var count =0
 var end =0
 var nomore = false
 func _physics_process(delta):
-
+	if (Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_accept")) and !get_node("../3secTimer1").is_stopped():
+		get_node("../3secTimer1").stop()
+		_on_3secTimer1_timeout()
+		print ("timer fin")
+		return
+		pass
 	if get_node("../player").interactuando == true or nomore:
 		$burbuja.visible=false
 	else:
@@ -26,7 +31,7 @@ func _physics_process(delta):
 			if nomore:
 				mensaje.set_visible(false)
 				get_node("../player").set_interactuando(false) 
-			if (Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_accept")) and get_node("../player").interactuando == false:
+			if (Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_accept")) and get_node("../player").interactuando == false and get_node("../3secTimer1").is_stopped() :
 				logicadic = logica.npc_talk(int(nombre))
 				if logicadic:
 					get_node("../player").interactuando = true
@@ -47,7 +52,7 @@ func _physics_process(delta):
 				else:
 					nomore = true
 			else:
-				if (Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_accept")) and get_node("../player").interactuando == true:
+				if (Input.is_action_just_pressed("ui_up") or Input.is_action_just_pressed("ui_accept")) and get_node("../player").interactuando == true and get_node("../3secTimer1").is_stopped(): 
 					end=1
 					get_node("../3secTimer1").start()
 					if $"../player".last_press == 0:
@@ -60,17 +65,13 @@ func _physics_process(delta):
 						textoslen = len(opcion1.selected)						
 					get_node("../player/Opcion1").visible = false
 					get_node("../player/Opcion2").visible = false
-		pass
 
 
 
 
 func _on_3secTimer1_timeout():
 	if end ==0:
-		print ("end = 0")
 		count +=1
-		print (textos)
-		print (textoslen)
 		if (count/2) < textoslen:
 			get_node("../player/Pregunta").set_text(str (textos[count/2].texto))
 		else:
@@ -79,10 +80,6 @@ func _on_3secTimer1_timeout():
 			get_node("../3secTimer"+nombre).stop()
 			count =0
 	else:
-		print ("end = 1")
-		print (count/2)
-		print (textoslen)
-		
 		if (count/2) < textoslen:
 			get_node("../player/Pregunta").set_text(str (textos[count/2].texto))
 		else:
@@ -93,4 +90,3 @@ func _on_3secTimer1_timeout():
 				end=0
 				get_node("../3secTimer"+nombre).stop()
 		count +=1
-	pass # replace with function body

@@ -5,7 +5,7 @@
 [ext_resource path="res://PressStart2P.ttf" type="DynamicFontData" id=3]
 [ext_resource path="res://musica/cancion.ogg" type="AudioStream" id=4]
 [ext_resource path="res://Personajes GGJ2019/fader.jpg" type="Texture" id=5]
-[ext_resource path="res://scripts/npc1.gd" type="Script" id=6]
+[ext_resource path="res://scripts/npc.gd" type="Script" id=6]
 [ext_resource path="res://Personajes GGJ2019/old_man_v2.png" type="Texture" id=7]
 [ext_resource path="res://Personajes GGJ2019/!.png" type="Texture" id=8]
 [ext_resource path="res://scripts/npc2.gd" type="Script" id=9]
@@ -25,7 +25,7 @@
 [ext_resource path="res://imagenes/Black_Up_Arrow.png" type="Texture" id=44]
 [ext_resource path="res://imagenes/Black_Right_Arrow.png" type="Texture" id=45]
 
-[sub_resource type="Shader" id=1]
+[sub_resource type="Shader" id=2]
 code = "shader_type canvas_item;
 
 uniform float radius = 3.0;
@@ -41,12 +41,11 @@ void fragment() {
 	COLOR.rgb = textureLod(SCREEN_TEXTURE, uv, 0.0).rgb;
 }"
 
-[sub_resource type="ShaderMaterial" id=2]
-shader = SubResource( 1 )
+[sub_resource type="ShaderMaterial" id=3]
+shader = SubResource( 2 )
 shader_param/radius = 2.0
 
-[sub_resource type="Animation" id=3]
-resource_name = "idle"
+[sub_resource type="Animation" id=4]
 tracks/0/type = "value"
 tracks/0/path = NodePath(".:frame")
 tracks/0/interp = 1
@@ -60,8 +59,7 @@ tracks/0/keys = {
 "values": [ 0 ]
 }
 
-[sub_resource type="Animation" id=4]
-resource_name = "walk"
+[sub_resource type="Animation" id=5]
 length = 0.5
 loop = true
 tracks/0/type = "value"
@@ -77,29 +75,29 @@ tracks/0/keys = {
 "values": [ 0, 1, 2, 3, 4, 0 ]
 }
 
-[sub_resource type="CircleShape2D" id=5]
+[sub_resource type="CircleShape2D" id=6]
 radius = 218.402
-
-[sub_resource type="DynamicFont" id=6]
-size = 14
-use_mipmaps = true
-font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=7]
 size = 14
+use_mipmaps = true
 font_data = ExtResource( 3 )
 
 [sub_resource type="DynamicFont" id=8]
 size = 14
 font_data = ExtResource( 3 )
 
-[sub_resource type="RectangleShape2D" id=9]
-extents = Vector2( 127.345, 28.004 )
+[sub_resource type="DynamicFont" id=9]
+size = 14
+font_data = ExtResource( 3 )
 
 [sub_resource type="RectangleShape2D" id=10]
+extents = Vector2( 127.345, 28.004 )
+
+[sub_resource type="RectangleShape2D" id=11]
 extents = Vector2( 54.4719, 106.63 )
 
-[sub_resource type="Animation" id=11]
+[sub_resource type="Animation" id=12]
 tracks/0/type = "value"
 tracks/0/path = NodePath("Cavas_day_nigth:color")
 tracks/0/interp = 1
@@ -126,7 +124,7 @@ __meta__ = {
 }
 
 [node name="TextureRect" type="TextureRect" parent="player"]
-material = SubResource( 2 )
+material = SubResource( 3 )
 margin_left = -864.567
 margin_top = -798.305
 margin_right = -800.567
@@ -144,13 +142,13 @@ texture = ExtResource( 2 )
 hframes = 5
 
 [node name="Anim_pj" type="AnimationPlayer" parent="player/Sprite"]
-anims/idle = SubResource( 3 )
-anims/walk = SubResource( 4 )
+anims/idle = SubResource( 4 )
+anims/walk = SubResource( 5 )
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="player"]
 position = Vector2( -184.229, -49.4984 )
 scale = Vector2( 0.536291, 0.986044 )
-shape = SubResource( 5 )
+shape = SubResource( 6 )
 
 [node name="Opcion2" type="Label" parent="player"]
 anchor_left = 1.0
@@ -161,7 +159,8 @@ margin_left = -63.0
 margin_top = -176.329
 margin_right = 86.0
 margin_bottom = -118.329
-custom_fonts/font = SubResource( 6 )
+rect_scale = Vector2( 1.3, 1.3 )
+custom_fonts/font = SubResource( 7 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 align = 1
 valign = 1
@@ -176,7 +175,8 @@ margin_left = -370.873
 margin_top = -165.202
 margin_right = -233.873
 margin_bottom = -107.202
-custom_fonts/font = SubResource( 7 )
+rect_scale = Vector2( 1.3, 1.3 )
+custom_fonts/font = SubResource( 8 )
 align = 1
 valign = 1
 uppercase = true
@@ -187,11 +187,12 @@ anchor_top = 1.0
 anchor_right = 1.0
 anchor_bottom = 1.0
 margin_left = -390.982
-margin_top = -440.075
+margin_top = -626.953
 margin_right = 194.018
-margin_bottom = -146.075
+margin_bottom = -332.953
+rect_scale = Vector2( 1.3, 1.3 )
 size_flags_horizontal = 3
-custom_fonts/font = SubResource( 8 )
+custom_fonts/font = SubResource( 9 )
 custom_colors/font_color = Color( 0, 0, 0, 1 )
 valign = 1
 autowrap = true
@@ -254,7 +255,7 @@ texture = ExtResource( 8 )
 [node name="iniciar charla" type="CollisionShape2D" parent="npc1"]
 position = Vector2( -99.3828, -84.7771 )
 scale = Vector2( 0.5, 6.92693 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="npc2" type="Area2D" parent="."]
 position = Vector2( 7047.76, -221.818 )
@@ -267,7 +268,7 @@ __meta__ = {
 [node name="iniciar charla" type="CollisionShape2D" parent="npc2"]
 position = Vector2( 325.161, -62.2688 )
 scale = Vector2( 0.5, 6.92693 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="Sprite" type="Sprite" parent="npc2"]
 position = Vector2( 335.678, -106.042 )
@@ -293,7 +294,7 @@ __meta__ = {
 [node name="iniciar charla" type="CollisionShape2D" parent="npc3"]
 position = Vector2( 61.9355, -20.7117 )
 scale = Vector2( 0.5, 7 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="Sprite" type="Sprite" parent="npc3"]
 position = Vector2( 276.132, -162.72 )
@@ -317,7 +318,7 @@ __meta__ = {
 [node name="iniciar charla" type="CollisionShape2D" parent="npc4"]
 position = Vector2( -77.418, -28.4403 )
 scale = Vector2( 0.5, 7 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="Sprite" type="Sprite" parent="npc4"]
 position = Vector2( 62.8281, -152.41 )
@@ -342,7 +343,7 @@ __meta__ = {
 [node name="iniciar charla" type="CollisionShape2D" parent="npc5"]
 position = Vector2( -108.918, -129.286 )
 scale = Vector2( 0.5, 7 )
-shape = SubResource( 9 )
+shape = SubResource( 10 )
 
 [node name="Sprite" type="Sprite" parent="npc5"]
 position = Vector2( 5.41602, -173.309 )
@@ -381,7 +382,7 @@ texture = ExtResource( 18 )
 [node name="CollisionShape2D" type="CollisionShape2D" parent="FinCasa"]
 position = Vector2( -237.235, -52.7469 )
 scale = Vector2( 1.02426, 0.93954 )
-shape = SubResource( 10 )
+shape = SubResource( 11 )
 
 [node name="admi" type="Sprite" parent="FinCasa"]
 position = Vector2( -241.039, -387.083 )
@@ -450,11 +451,12 @@ scale = Vector2( 30, 30 )
 color = Color( 0.956863, 0.898039, 0.898039, 1 )
 
 [node name="AnimationPlayer" type="AnimationPlayer" parent="."]
-"anims/New Anim" = SubResource( 11 )
+"anims/New Anim" = SubResource( 12 )
 
 [node name="background" parent="." instance=ExtResource( 19 )]
 position = Vector2( 12, 0 )
-[connection signal="timeout" from="3secTimer1" to="npc1" method="_on_3secTimer1_timeout"]
+[connection signal="body_entered" from="npc1" to="player" method="_on_npc1_body_entered"]
+[connection signal="timeout" from="3secTimer1" to="player" method="_on_3secTimer1_timeout"]
 [connection signal="timeout" from="3secTimer2" to="npc2" method="_on_3secTimer2_timeout"]
 [connection signal="timeout" from="3secTimer3" to="npc3" method="_on_3secTimer3_timeout"]
 [connection signal="timeout" from="3secTimer4" to="npc4" method="_on_3secTimer4_timeout"]
