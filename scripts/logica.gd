@@ -214,7 +214,7 @@ func npc_talk(id):
 	if id ==3:
 		if estadonpc3 ==0:
 			return {
-				'textos':[{'texto':'¡GUAU! ¡GUAU!','id':3}, {'texto':'Sí, lo entiendo, yo también estoy preocupado por la situación socio-política de Sri Lanka.','id':0}],
+				'textos':[{'texto':'¡GUAU! ¡GUAU!','id':3}, {'texto':'Sí, lo entiendo, yo también estoy preocupado por la situación socio-política de Sri Lanka.','id':0},{'texto':'¡GUAU! ¡GUAU!','id':3}, {'texto':'Sí, lo entiendo, yo también estoy preocupado por la situación socio-política de Sri Lanka.','id':0}],
 				 'opcion1':{'texto':'Jugar', 'valor':2,
 						  'selected':[
 						{'texto':'ENCONTRÁS UN TRONCO GIGANTE A LA VERA DEL CAMINO. LO PATEÁS PERO AUNQUE NO SE MUEVA ÉL SE OCUPA DE TOMARLO Y ENTRETENERSE UN RATO. HAS GANADO UN POCO DE SU CONFIANZA.','id':6}
