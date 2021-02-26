@@ -215,8 +215,6 @@ limit_bottom = -25
 drag_margin_h_enabled = true
 drag_margin_v_enabled = true
 
-[node name="fondo" type="Sprite" parent="player"]
-
 [node name="Fade" type="Node" parent="player"]
 
 [node name="fade" type="Sprite" parent="player/Fade"]
@@ -399,8 +397,6 @@ position = Vector2( -84.0946, 218.646 )
 position = Vector2( 84.0946, -218.646 )
 polygon = PoolVector2Array( 19.1967, -815.674, -7.35962, -111.933, 110.695, -150.252, 940.526, -124.865, 1158.8, -134.797, 1619.88, -198.574, 1821.87, -211.874, 2118.59, -201.058, 2592.4, -170.373, 2930.71, -153.389, 3161.45, -133.975, 3378.56, -147.837, 3725.03, -148.713, 4003.62, -167.983, 4173.58, -159.543, 4240.31, -162, 4383.5, -154.84, 4561.07, -137.656, 4730.97, -151.261, 4845.08, -171.827, 4941.94, -181.778, 5058.04, -180.452, 5241.81, -148.607, 5446.77, -160.323, 5714.55, -176.075, 5911.3, -181.803, 6097.3, -200.565, 6474.06, -195.287, 6538.01, -183.573, 6888.49, -141.838, 7316.89, -129.145, 8119.31, -130.554, 8614.62, -94.2012, 8944.07, -146.459, 9420.12, -222.093, 9841.54, -212.349, 10387.3, -252.905, 11282.8, -286.8, 11692.5, -357.895, 12178.1, -459.554, 12799, -375.959, 13338.6, -223.47, 14219.8, -228.253, 14916.9, -260.361, 15885.2, -262.334, 16648.7, -169.179, 17416.6, -116.922, 18516.2, -211.455, 19622.8, -157.819, 20715.7, -144.187, 21211.8, -151.681, 21449.5, -126.01, 23025.4, -199.588, 23028.1, -938.948, 24396.1, 1.02502, -239.432, -29.7536 )
 
-[node name="3secTimer1" type="Timer" parent="."]
-
 [node name="CanvasLayer" type="CanvasLayer" parent="."]
 layer = 44
 
@@ -447,8 +443,6 @@ color = Color( 0.956863, 0.898039, 0.898039, 1 )
 
 [node name="background" parent="." instance=ExtResource( 19 )]
 position = Vector2( 12, 0 )
-[connection signal="body_entered" from="npc1" to="player" method="_on_npc1_body_entered"]
-[connection signal="timeout" from="3secTimer1" to="player" method="_on_3secTimer1_timeout"]
 [connection signal="pressed" from="CanvasLayer/left" to="player" method="_on_TouchScreenButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/up" to="player" method="_on_TouchScreenButton_pressed"]
 [connection signal="pressed" from="CanvasLayer/right" to="player" method="_on_TouchScreenButton_pressed"]

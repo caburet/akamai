@@ -3,6 +3,8 @@ onready var mensaje = get_node( "burbuja" )
 var nombre= '2'
 var nomore = false
 var count =0
+var countrta =0
+var textcolor ='#9900cc'
 var end =0
 func _input(event):
 	if get_node("../player").interactuando == true or nomore:

@@ -220,6 +220,7 @@ func npc_talk(id):
 						{'texto':'ENCONTRÁS UN TRONCO GIGANTE A LA VERA DEL CAMINO. LO PATEÁS PERO AUNQUE NO SE MUEVA ÉL SE OCUPA DE TOMARLO Y ENTRETENERSE UN RATO. HAS GANADO UN POCO DE SU CONFIANZA.','id':6}
 						]},
 				 'opcion2':{'texto':'No jugar', 'valor':0, 'selected':[
+						{'texto':'No puedo jugar con vos ahora','id':3},
 						{'texto':'Grrrrr ¡GUAU!','id':3},
 						{'texto':'¡Pará, ortiva! ¡Rescatate!','id':0},
 						{'texto':'SEGUÍS TU CAMINO.','id':6}
@@ -235,6 +236,7 @@ func npc_talk(id):
 						{'texto':'TE PONÉS EN PUNTAS DE PIE Y ACARICIÁS SU PANZA. CLARAMENTE HAS GANADO SU CONFIANZA. SEGUÍS TU CAMINO.','id':6}
 						]},
 				 'opcion2':{'texto':'No acariciar.', 'valor':2, 'selected':[
+						{'texto':'No puedo dedicarte el tiempo','id':3},
 						{'texto':'Grrrr ¡GUAU! ¡GUAU!','id':3},
 						{'texto':'¡Aguantá, rope facho! Hay que bancarse todas las religiones, podrías haber sido muy hiriente.','id':0},
 						{'texto':'SEGUÍS TU CAMINO.','id':6}

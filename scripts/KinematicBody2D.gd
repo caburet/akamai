@@ -11,10 +11,13 @@ var last_press = 0
 var logicadic
 var textoslen
 var textos 
+var textoslenrta
+var textosrta
 var opcion1 
 var opcion2 
 var nombre
 var npc
+
 
 func _physics_process(delta):
 	$sun.position.x = (self.position.x/max_pos * ligth_max_pox[0])
@@ -55,11 +58,22 @@ func _on_TouchScreenButton_pressed():
 	get_node( "Sprite" ).set_flip_h( false )
 	pass # replace with function body
 
+func show_interface(show):
+	if show:
+		$Pregunta.visible = true
+		get_node("../player/Opcion1").visible = true
+		get_node("../player/Opcion2").visible = true
+	else:
+		$Pregunta.visible = false
+		get_node("../player/Opcion1").visible = false
+		get_node("../player/Opcion2").visible = false		
+	pass
+	
 func interact_with(event,numero):
 			if nombre != numero:
 				nombre= numero
 				npc = get_node("../npc"+numero)
-				get_node("../3secTimer1").stop()
+				npc.end=0
 			mensaje = get_node("../npc"+numero+"/burbuja" )
 			if self.interactuando == false and !npc.mensaje.is_visible():
 				npc.mensaje.set_visible(true)
@@ -67,69 +81,100 @@ func interact_with(event,numero):
 				npc.mensaje.set_visible(false)
 				interactuando =false
 			if (event.is_action_pressed("ui_up") or event.is_action_pressed("ui_accept")):
-				if !get_node("../3secTimer1").is_stopped():
-					#get_node("../3secTimer1").stop()
-					#_on_3secTimer1_timeout()
-					pass
-				else:
+					#Inicia charla
 					if self.interactuando == false:
-						print ("interactuando = false")
+						print ("interactuando == false")
 						logicadic = logica.npc_talk(int(numero))
-						print (logicadic)
-						if logicadic:
+						if !logicadic:
+							npc.nomore = true
+						else:
+							print ("interactuando = true")
 							self.interactuando = true
 							textos = logicadic.textos
-							
 							textoslen = len(logicadic.textos)
 							opcion1 = logicadic.opcion1
 							opcion2 = logicadic.opcion2
+							print (textos)
+							print (opcion1)
+							print (opcion2)	
 							mensaje.set_visible(false)
 							npc.count=0
-							get_node("../3secTimer1").start()
-							get_node("../player/Pregunta").set_text(str (textos[0].texto))
+							textosrta=''
+							$Pregunta.set_text(str (textos[npc.count].texto))
+							if npc.count%2==0:
+								$Pregunta.set("custom_colors/font_color", Color(npc.textcolor))
+							else:
+								$Pregunta.set("custom_colors/font_color", Color('#000000'))
+							show_interface(true)
 							if textoslen ==1:
 								get_node("../player/Opcion1").set_text(opcion1.texto)
 								get_node("../player/Opcion2").set_text(opcion2.texto)
+								npc.end=1
 							else:								
 								get_node("../player/Opcion1").set_text('')
-								get_node("../player/Opcion2").set_text('')
-							get_node("../player/Pregunta").visible = true
-							get_node("../player/Opcion1").visible = true
-							get_node("../player/Opcion2").visible = true
-							get_node("../player/fondo").visible = true
-						else:
-							npc.nomore = true
-					else: #interactuando = true
-						print ("interactuando = true")
-						npc.end=1
-						get_node("../3secTimer1").start()
-						if $"../player".last_press == 0:
-							logica.npc_set_state(1,opcion2.valor)
-							textos = opcion2.selected
-							textoslen = len(opcion2.selected)
-						if $"../player".last_press==1:
-							logica.npc_set_state(1,opcion1.valor)
-							textos = opcion1.selected
-							textoslen = len(opcion1.selected)						
-						get_node("../player/Opcion1").visible = false
-						get_node("../player/Opcion2").visible = false
-
-
-func _on_3secTimer1_timeout():
-	get_node("../3secTimer1").stop()
-	print ("timeout")
-	if (npc.count/2) < textoslen:
-		get_node("../player/Pregunta").set_text(str (textos[npc.count/2].texto))
-		get_node("../3secTimer1").start()
-	else:
-		if npc.end ==0:
-			get_node("../player/Opcion1").set_text(str (opcion1.texto))
-			get_node("../player/Opcion2").set_text(str (opcion2.texto))
-			npc.count =0
-		else:
-			if (npc.count/2) < textoslen+2:
-				get_node("../player/Pregunta").visible = false
-				get_node("../player").interactuando = false
-				get_node("../player/fondo").visible = false
-				npc.end=0
-	npc.count +=1
+								get_node("../player/Opcion2").set_text('')							
+								npc.end=0
+							npc.count+=1	
+					else: #self.interactuando == true
+						# Esta interactuando desde antes
+						#si tengo aun dialogo
+						if npc.end==0:
+							print ("if1")
+							if npc.count == textoslen-1:
+								print ("if2")
+								if npc.count%2==0:
+									$Pregunta.set("custom_colors/font_color", Color(npc.textcolor))
+								else:
+									$Pregunta.set("custom_colors/font_color", Color('#000000'))								
+								$Pregunta.set_text(str (textos[npc.count].texto))
+								get_node("../player/Opcion1").set_text(opcion1.texto)
+								get_node("../player/Opcion2").set_text(opcion2.texto)
+								npc.end=1
+								npc.countrta=0
+							elif npc.count < textoslen-1:
+								print ("if3")
+								if npc.count%2==0:
+									$Pregunta.set("custom_colors/font_color", Color(npc.textcolor))
+								else:
+									$Pregunta.set("custom_colors/font_color", Color('#000000'))								
+								$Pregunta.set_text(str (textos[npc.count].texto))
+								npc.count+=1								
+						# Termino el dialogo
+						else: #npc.end=1
+							print ("if4")
+							
+							if !textosrta: # recupero respuesta y cambio de estado
+								print ("if5")
+								npc.countrta=0
+								if npc.countrta%2==1:
+									$Pregunta.set("custom_colors/font_color", Color(npc.textcolor))
+								else:
+									$Pregunta.set("custom_colors/font_color", Color('#000000'))													
+								if $"../player".last_press == 0:
+									logica.npc_set_state(1,opcion2.valor)
+									textosrta = opcion2.selected
+									textoslenrta = len(opcion2.selected)
+								if $"../player".last_press==1:
+									logica.npc_set_state(1,opcion1.valor)
+									textosrta = opcion1.selected
+									textoslenrta = len(opcion1.selected)						
+								$Pregunta.set_text(str (textosrta[npc.countrta].texto))
+								get_node("../player/Opcion1").visible = false
+								get_node("../player/Opcion2").visible = false	
+								npc.countrta+=1
+							else:
+								if npc.countrta<textoslenrta:
+									print ("if6")
+									if npc.countrta%2==1:
+										$Pregunta.set("custom_colors/font_color", Color(npc.textcolor))
+									else:
+										$Pregunta.set("custom_colors/font_color", Color('#000000'))															
+									$Pregunta.set_text(str (textosrta[npc.countrta].texto))
+									npc.countrta+=1
+								else:
+									print ("if7")
+									get_node("../player").interactuando = false
+									show_interface(false)
+									pass
+								pass
+								
