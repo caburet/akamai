@@ -353,6 +353,8 @@ polygon = PoolVector2Array( 19.1967, -815.674, -7.35962, -111.933, 110.695, -150
 layer = 44
 
 [node name="pregunta1" type="Sprite" parent="CanvasLayer"]
+visible = false
+modulate = Color( 1, 1, 1, 0.384314 )
 position = Vector2( 514.773, 265.872 )
 scale = Vector2( 0.8, 2.08 )
 texture = ExtResource( 25 )
@@ -418,23 +420,29 @@ __meta__ = {
 "_edit_use_anchors_": false
 }
 
+[node name="pregunta2" type="Sprite" parent="CanvasLayer"]
+modulate = Color( 1, 1, 1, 0.298039 )
+position = Vector2( 257.816, 708.491 )
+scale = Vector2( 0.345972, 0.472077 )
+texture = ExtResource( 25 )
+
 [node name="carne" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 226.755, 671.444 )
-scale = Vector2( 3, 3 )
+position = Vector2( 149.414, 714.882 )
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 22 )
 hframes = 8
 
 [node name="hueso" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 481.245, 673.822 )
-scale = Vector2( 3, 3 )
+position = Vector2( 288.423, 715.141 )
+scale = Vector2( 1.5, 1.5 )
 texture = ExtResource( 23 )
 
 [node name="moneda" type="Sprite" parent="CanvasLayer"]
-position = Vector2( 716.708, 671.444 )
-scale = Vector2( 2, 2 )
+position = Vector2( 404.166, 719.12 )
 texture = ExtResource( 24 )
 
 [node name="left" type="TouchScreenButton" parent="CanvasLayer"]
+visible = false
 position = Vector2( 23.2949, 633.624 )
 scale = Vector2( 1.84091, 1.80266 )
 normal = ExtResource( 43 )
@@ -443,6 +451,7 @@ action = "ui_left"
 visibility_mode = 1
 
 [node name="up" type="TouchScreenButton" parent="CanvasLayer"]
+visible = false
 position = Vector2( 486.34, 604.963 )
 scale = Vector2( 0.420123, 0.346741 )
 normal = ExtResource( 44 )
@@ -451,6 +460,7 @@ action = "ui_up"
 visibility_mode = 1
 
 [node name="right" type="TouchScreenButton" parent="CanvasLayer"]
+visible = false
 position = Vector2( 783.732, 633.623 )
 scale = Vector2( 1.84091, 1.80266 )
 normal = ExtResource( 45 )
