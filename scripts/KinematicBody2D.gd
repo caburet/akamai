@@ -17,6 +17,7 @@ var opcion1
 var opcion2 
 var nombre
 var npc
+onready var pregunta1=$"../CanvasLayer/pregunta1"
 onready var pregunta=$"../CanvasLayer/Pregunta"
 onready var opcion1_gui=$"../CanvasLayer/Opcion1"
 onready var opcion2_gui=$"../CanvasLayer/Opcion2"
@@ -76,10 +77,12 @@ func _on_TouchScreenButton_pressed():
 func show_interface(show):
 	if show:
 		pregunta.visible = true
+		pregunta1.visible = true
 		opcion1_gui.visible = true
 		opcion2_gui.visible = true
 	else:
 		pregunta.visible = false
+		pregunta1.visible = false
 		opcion1_gui.visible = false
 		opcion2_gui.visible = false		
 	pass
