@@ -17,9 +17,24 @@ var opcion1
 var opcion2 
 var nombre
 var npc
+onready var pregunta=$"../CanvasLayer/Pregunta"
+onready var opcion1_gui=$"../CanvasLayer/Opcion1"
+onready var opcion2_gui=$"../CanvasLayer/Opcion2"
 
 
 func _physics_process(delta):
+	if logica.guiso:
+		$"../CanvasLayer/carne".show()
+	else:
+		$"../CanvasLayer/carne".hide()
+	if logica.moneda:
+		$"../CanvasLayer/moneda".show()
+	else:
+		$"../CanvasLayer/moneda".hide()		
+	if logica.hueso:
+		$"../CanvasLayer/hueso".show()
+	else:
+		$"../CanvasLayer/hueso".hide()				
 	$sun.position.x = (self.position.x/max_pos * ligth_max_pox[0])
 	motion.y =+200
 	if Input.is_action_pressed("ui_right" ) and not interactuando:
@@ -43,14 +58,14 @@ func _input(event):
 	if event.is_action_pressed("ui_left"):
 		last_press =1	
 	if last_press == 0:
-		$Opcion1.add_color_override("font_color", Color(0,0,0))
-		$Opcion2.add_color_override("font_color", Color(0,0,1))
+		opcion1_gui.add_color_override("font_color", Color(0,0,0))
+		opcion2_gui.add_color_override("font_color", Color(0,0,1))
 	if last_press==1:
-		$Opcion1.add_color_override("font_color", Color(0,0,1))
-		$Opcion2.add_color_override("font_color", Color(0,0,0))
+		opcion1_gui.add_color_override("font_color", Color(0,0,1))
+		opcion2_gui.add_color_override("font_color", Color(0,0,0))
 	if last_press==2:
-		$Opcion1.add_color_override("font_color", Color(0,0,0))
-		$Opcion2.add_color_override("font_color", Color(0,0,0))
+		opcion1_gui.add_color_override("font_color", Color(0,0,0))
+		opcion2_gui.add_color_override("font_color", Color(0,0,0))
 
 
 func _on_TouchScreenButton_pressed():
@@ -60,13 +75,13 @@ func _on_TouchScreenButton_pressed():
 
 func show_interface(show):
 	if show:
-		$Pregunta.visible = true
-		get_node("../player/Opcion1").visible = true
-		get_node("../player/Opcion2").visible = true
+		pregunta.visible = true
+		opcion1_gui.visible = true
+		opcion2_gui.visible = true
 	else:
-		$Pregunta.visible = false
-		get_node("../player/Opcion1").visible = false
-		get_node("../player/Opcion2").visible = false		
+		pregunta.visible = false
+		opcion1_gui.visible = false
+		opcion2_gui.visible = false		
 	pass
 	
 func interact_with(event,numero):
@@ -100,19 +115,19 @@ func interact_with(event,numero):
 							mensaje.set_visible(false)
 							npc.count=0
 							textosrta=''
-							$Pregunta.set_text(str (textos[npc.count].texto))
+							pregunta.set_text(str (textos[npc.count].texto))
 							if npc.count%2==0:
-								$Pregunta.set("custom_colors/font_color", Color(npc.textcolor))
+								pregunta.set("custom_colors/font_color", Color(npc.textcolor))
 							else:
-								$Pregunta.set("custom_colors/font_color", Color('#000000'))
+								pregunta.set("custom_colors/font_color", Color('#000000'))
 							show_interface(true)
 							if textoslen ==1:
-								get_node("../player/Opcion1").set_text(opcion1.texto)
-								get_node("../player/Opcion2").set_text(opcion2.texto)
+								opcion1_gui.set_text(opcion1.texto)
+								opcion2_gui.set_text(opcion2.texto)
 								npc.end=1
 							else:								
-								get_node("../player/Opcion1").set_text('')
-								get_node("../player/Opcion2").set_text('')							
+								opcion1_gui.set_text('')
+								opcion2_gui.set_text('')							
 								npc.end=0
 							npc.count+=1	
 					else: #self.interactuando == true
@@ -123,21 +138,21 @@ func interact_with(event,numero):
 							if npc.count == textoslen-1:
 								print ("if2")
 								if npc.count%2==0:
-									$Pregunta.set("custom_colors/font_color", Color(npc.textcolor))
+									pregunta.set("custom_colors/font_color", Color(npc.textcolor))
 								else:
-									$Pregunta.set("custom_colors/font_color", Color('#000000'))								
-								$Pregunta.set_text(str (textos[npc.count].texto))
-								get_node("../player/Opcion1").set_text(opcion1.texto)
-								get_node("../player/Opcion2").set_text(opcion2.texto)
+									pregunta.set("custom_colors/font_color", Color('#000000'))								
+								pregunta.set_text(str (textos[npc.count].texto))
+								opcion1_gui.set_text(opcion1.texto)
+								opcion2_gui.set_text(opcion2.texto)
 								npc.end=1
 								npc.countrta=0
 							elif npc.count < textoslen-1:
 								print ("if3")
 								if npc.count%2==0:
-									$Pregunta.set("custom_colors/font_color", Color(npc.textcolor))
+									pregunta.set("custom_colors/font_color", Color(npc.textcolor))
 								else:
-									$Pregunta.set("custom_colors/font_color", Color('#000000'))								
-								$Pregunta.set_text(str (textos[npc.count].texto))
+									pregunta.set("custom_colors/font_color", Color('#000000'))								
+								pregunta.set_text(str (textos[npc.count].texto))
 								npc.count+=1								
 						# Termino el dialogo
 						else: #npc.end=1
@@ -147,29 +162,29 @@ func interact_with(event,numero):
 								print ("if5")
 								npc.countrta=0
 								if npc.countrta%2==1:
-									$Pregunta.set("custom_colors/font_color", Color(npc.textcolor))
+									pregunta.set("custom_colors/font_color", Color(npc.textcolor))
 								else:
-									$Pregunta.set("custom_colors/font_color", Color('#000000'))													
+									pregunta.set("custom_colors/font_color", Color('#000000'))													
 								if $"../player".last_press == 0:
-									logica.npc_set_state(1,opcion2.valor)
+									logica.npc_set_state(numero,opcion2.valor)
 									textosrta = opcion2.selected
 									textoslenrta = len(opcion2.selected)
 								if $"../player".last_press==1:
-									logica.npc_set_state(1,opcion1.valor)
+									logica.npc_set_state(numero,opcion1.valor)
 									textosrta = opcion1.selected
 									textoslenrta = len(opcion1.selected)						
-								$Pregunta.set_text(str (textosrta[npc.countrta].texto))
-								get_node("../player/Opcion1").visible = false
-								get_node("../player/Opcion2").visible = false	
+								pregunta.set_text(str (textosrta[npc.countrta].texto))
+								opcion1_gui.visible = false
+								opcion2_gui.visible = false	
 								npc.countrta+=1
 							else:
 								if npc.countrta<textoslenrta:
 									print ("if6")
 									if npc.countrta%2==1:
-										$Pregunta.set("custom_colors/font_color", Color(npc.textcolor))
+										pregunta.set("custom_colors/font_color", Color(npc.textcolor))
 									else:
-										$Pregunta.set("custom_colors/font_color", Color('#000000'))															
-									$Pregunta.set_text(str (textosrta[npc.countrta].texto))
+										pregunta.set("custom_colors/font_color", Color('#000000'))															
+									pregunta.set_text(str (textosrta[npc.countrta].texto))
 									npc.countrta+=1
 								else:
 									print ("if7")

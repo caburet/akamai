@@ -11,6 +11,7 @@ var tengop2 = 0
 var day =1
 
 func npc_talk(id):
+	print (guiso,moneda,hueso)
 	################################ NPC 1 ####################################################3
 	if id ==1:
 		if estadonpc1 ==0:
@@ -597,10 +598,13 @@ func npc_talk(id):
 					
 		
 func npc_set_state(id,estado):
+	print ("npc_set_state("+str(id)+","+str(estado)+")")
 	estado=int(estado)
+	id=int(id)
 	if id ==1:
 		if estado == 4:
 			hueso = true
+			guiso = false
 		estadonpc1 = estado
 	if id ==2:
 		if estado ==3:
